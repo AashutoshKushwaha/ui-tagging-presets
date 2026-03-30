@@ -1,0 +1,166 @@
+/* ============================================================
+   OSM Preset Explorer — Global Design System
+   ============================================================ */
+
+:root {
+  /* Color palette */
+  --bg-primary: #000000;
+  --bg-secondary: #0A0A0A;
+  --bg-tertiary: #141414;
+
+  /* Panel cards */
+  --panel-bg: #0A0A0A;
+  --panel-border: rgba(255, 255, 255, 0.08);
+  --panel-hover: #141414;
+
+  /* Accent */
+  --accent: #E2E8F0;
+  --accent-light: #FFFFFF;
+  --accent-glow: rgba(255, 255, 255, 0.05);
+
+  /* Text */
+  --text-primary: #EDEDED;
+  --text-secondary: #A1A1AA;
+  --text-muted: #52525B;
+
+  /* Status colors */
+  --green: #3fb950;
+  --green-bg: rgba(63, 185, 80, 0.12);
+  --red: #f85149;
+  --red-bg: rgba(248, 81, 73, 0.12);
+  --yellow: #d29922;
+  --yellow-bg: rgba(210, 153, 34, 0.12);
+  --blue: #58a6ff;
+  --blue-bg: rgba(88, 166, 255, 0.12);
+  --orange: #f0883e;
+  --orange-bg: rgba(240, 136, 62, 0.12);
+  --purple-bg: rgba(139, 92, 246, 0.12);
+
+  /* Geometry colors */
+  --geo-point: #34d399;
+  --geo-line: #60a5fa;
+  --geo-area: #f472b6;
+  --geo-vertex: #fbbf24;
+  --geo-relation: #a78bfa;
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+
+  /* Border radius */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 8px;
+
+  /* Transitions */
+  --transition: all 0.15s ease;
+
+  /* Sidebar + Panel widths */
+  --sidebar-width: 220px;
+  --panel-width: 420px;
+  --header-height: 64px;
+
+  /* Fonts */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+/* ---- Reset ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { height: 100%; }
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  height: 100%;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root { height: 100%; display: flex; flex-direction: column; }
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--panel-border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* ---- Panel utility ---- */
+.panel {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+}
+
+/* ---- Tag chip ---- */
+.tag-chip {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  border: 1px solid var(--panel-border);
+  white-space: nowrap;
+  display: inline-block;
+}
+
+/* ---- Geometry chip ---- */
+.geo-chip {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.geo-chip.point { background: rgba(52, 211, 153, 0.12); color: var(--geo-point); }
+.geo-chip.line  { background: rgba(96, 165, 250, 0.12); color: var(--geo-line); }
+.geo-chip.area  { background: rgba(244, 114, 182, 0.12); color: var(--geo-area); }
+.geo-chip.vertex { background: rgba(251, 191, 36, 0.12); color: var(--geo-vertex); }
+.geo-chip.relation { background: var(--purple-bg); color: var(--accent-light); }
+
+/* ---- Button base ---- */
+button {
+  font-family: var(--font-sans);
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+/* ---- Loading animation ---- */
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+.loading-dots span {
+  display: inline-block;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin: 0 3px;
+  animation: pulse 1.2s ease infinite;
+}
+.loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+.loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+/* ---- Skeleton shimmer ---- */
+@keyframes shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, var(--bg-tertiary) 25%, var(--panel-border) 50%, var(--bg-tertiary) 75%);
+  background-size: 400px 100%;
+  animation: shimmer 1.4s infinite linear;
+  border-radius: var(--radius-sm);
+}

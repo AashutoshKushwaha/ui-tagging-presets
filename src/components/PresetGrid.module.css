@@ -1,0 +1,50 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  padding: 20px;
+  overflow-y: auto;
+  align-content: start;
+}
+
+.loadingState, .emptyState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  flex-direction: column;
+  gap: 16px;
+  color: var(--text-secondary);
+}
+
+.loadingDots {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.dot {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.loadingText {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+.loadingText strong { color: var(--text-primary); }
+
+.emptyIcon { font-size: 48px; }
+
+.emptyTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.emptyHint {
+  font-size: 14px;
+  color: var(--text-muted);
+}

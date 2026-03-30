@@ -1,0 +1,36 @@
+.wrap { display: flex; flex-direction: column; gap: 10px; }
+
+.group { display: flex; flex-direction: column; gap: 6px; }
+
+.groupLabel {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+
+.chip {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  font-weight: 500;
+}
+
+.include {
+  background: var(--green-bg);
+  color: var(--green);
+  border-color: rgba(63, 185, 80, 0.2);
+}
+
+.exclude {
+  background: var(--red-bg);
+  color: var(--red);
+  border-color: rgba(248, 81, 73, 0.2);
+}
+
+.global {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
